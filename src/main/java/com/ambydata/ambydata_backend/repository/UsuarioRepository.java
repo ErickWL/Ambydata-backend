@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    // Prontinho! O Spring já sabe como mexer na tabela de usuários.
+
 }

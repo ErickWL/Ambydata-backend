@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/dados") // Mesma URL que o React já chamava!
+@RequestMapping("/api/dados")
 @CrossOrigin(origins = "http://localhost:5173") // Libera o React acessar o Java
 public class MetricaController {
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuarios") // URL que o React vai chamar
-@CrossOrigin(origins = "http://localhost:5173") // O seu CORS protetor agora feito em Java!
+@CrossOrigin(origins = "http://localhost:5173") // O seu CORS protetor
 public class UsuarioController {
 
     @Autowired

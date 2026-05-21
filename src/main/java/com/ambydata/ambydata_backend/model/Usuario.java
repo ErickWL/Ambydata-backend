@@ -6,14 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;  // 1. IMPORTANTE: Adicione esse import
-import lombok.AllArgsConstructor; // 2. IMPORTANTE: Adicione esse import
+import lombok.NoArgsConstructor;  
+import lombok.AllArgsConstructor;
 
 @Entity
 @Table(name = "usuarios")
 @Data
-@NoArgsConstructor  // 3. ESSA AQUI: Cria o construtor vazio que o Hibernate exigiu!
-@AllArgsConstructor // 4. ESSA AQUI: Cria um construtor com todos os campos (boa prática)
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
 
     @Id
