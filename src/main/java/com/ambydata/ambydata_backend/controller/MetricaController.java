@@ -15,7 +15,7 @@ import java.util.List;                                               // Lista pa
 
 // Permite que o frontend React (rodando na porta 5173) acesse essa API
 // Sem isso, o navegador bloquearia as requisições por política de segurança (CORS)
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class MetricaController {
 
     // O Spring injeta automaticamente uma instância do repositório aqui
