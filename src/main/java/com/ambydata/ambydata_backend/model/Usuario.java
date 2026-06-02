@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 // Importações Lombok — geram código repetitivo automaticamente em tempo de compilação
 import lombok.Data;             // Gera: getters, setters, toString, equals e hashCode
@@ -39,4 +41,11 @@ public class Usuario {
     private String nome;   // Nome completo do usuário
     private String email;  // Email — idealmente único no banco (@Column(unique = true))
     private String senha;  // Senha — idealmente armazenada com hash (ex: BCrypt)
+    // Relacionamento Muitos para Um — Vários usuários podem ter o mesmo cargo
+    @ManyToOne 
+
+    // Indica que este campo é uma chave estrangeira para a entidade Cargo
+    @JoinColumn(name = "fk_cargo_id") 
+
+    private Cargo cargo;
 }
