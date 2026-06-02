@@ -18,7 +18,7 @@ import java.util.Optional;                                     // Para lidar com
 @RequestMapping("/api/usuarios")
 
 // Libera o acesso do frontend React (porta 5173) — evita bloqueio por CORS no navegador
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "https://ambydata-react.vercel.app")
 public class UsuarioController {
 
     // O Spring injeta automaticamente o serviço aqui — sem precisar de "new UsuarioService()"
