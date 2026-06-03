@@ -28,12 +28,9 @@ public class UsuarioService {
     }
 
     // Salva um novo usuário ou atualiza um existente
-    // O JPA decide automaticamente: se tem ID → UPDATE, se não tem → INSERT
     // Retorna o usuário salvo já com o ID gerado pelo banco
     // Chamado pelo UsuarioController quando chega um POST em /api/usuarios
     public Usuario salvar(Usuario usuario) {
-        // ⚠️ Aqui seria o lugar ideal para aplicar regras de negócio antes de salvar
-        // Ex: validar email duplicado, aplicar hash na senha com BCrypt, etc.
         return usuarioRepository.save(usuario);
     }
 }
