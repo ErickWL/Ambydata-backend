@@ -69,12 +69,6 @@ pom.xml
 Dockerfile
 ```
 
-## Testes
-
-```bash
-./mvnw test
-```
-
 ## Roadmap / Status
 
 Projeto em desenvolvimento ativo — API e schema do banco ainda sujeitos a mudanças.
