@@ -2,7 +2,7 @@
 
 Backend do **AmbyData**, um dashboard de monitoramento industrial em tempo real: captura dados de máquinas/produtos e acompanha OEE, produtividade, lucros, desvios, necessidade de manutenção e temperatura.
 
-Este repositório contém apenas a API. O frontend está em [`Ambydata-frontend`](https://github.com/ErickWL/Ambydata-frontend).
+Este repositório contém apenas a API. O frontend está em [`Ambydata-frontend`](https://github.com/ErickWL/Ambydata-react).
 
 ## Stack
 
