@@ -1,4 +1,4 @@
-package com.ambydata.ambydata_backend.controller;
+/*package com.ambydata.ambydata_backend.controller;
 
 // Importações necessárias para o funcionamento do controller
 import com.ambydata.ambydata_backend.repository.MetricaRepository; // Interface de acesso ao banco de dados
@@ -29,4 +29,4 @@ public class MetricaController {
     public List<Metrica> listarMetricas() {
         return metricaRepository.findAll(); // findAll() busca todos os registros da tabela no MySQL
     }
-}
+}*/

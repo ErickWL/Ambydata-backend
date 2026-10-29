@@ -1,4 +1,4 @@
-package com.ambydata.ambydata_backend.model;
+/*package com.ambydata.ambydata_backend.model;
 
 import jakarta.persistence.Column;
 // Importações JPA para mapear a tabela de cargos no banco
@@ -37,4 +37,4 @@ public class Cargo {
     private String nomeCargo;
 
     private String descricao;
-}
+}*/

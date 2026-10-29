@@ -1,4 +1,4 @@
-package com.ambydata.ambydata_backend.model;
+/*package com.ambydata.ambydata_backend.model;
 
 // Importações JPA — mapeiam essa classe para uma tabela no banco de dados
 import jakarta.persistence.Entity;          // Marca a classe como uma entidade gerenciada pelo JPA/Hibernate
@@ -52,4 +52,4 @@ public class Metrica {
 
     public Double getOee() { return oee; }
     public void setOee(Double oee) { this.oee = oee; }
-}
+}*/

@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Credenciais e variáveis de ambiente locais
+.env
+application-local.yml

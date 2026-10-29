@@ -1,4 +1,4 @@
-package com.ambydata.ambydata_backend.repository;
+/*package com.ambydata.ambydata_backend.repository;
 
 // Importa o modelo que este repositório vai gerenciar no banco
 import com.ambydata.ambydata_backend.model.Metrica;
@@ -28,4 +28,4 @@ public interface MetricaRepository extends JpaRepository<Metrica, Long> {
     // -----------------------------------------------------------
     // Consultas personalizadas podem ser adicionadas aqui quando necessário
     // Ex: List<Metrica> findByLabel(String label);
-}
+}*/

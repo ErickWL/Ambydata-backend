@@ -1,0 +1,15 @@
+# =============================================
+# CONFIGURAÇÕES DO SERVIDOR
+# =============================================
+server:
+  port: 8080
+
+spring:
+  mongodb:
+    uri: ${MONGODB_URI}
+    database: pi
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: 3600000

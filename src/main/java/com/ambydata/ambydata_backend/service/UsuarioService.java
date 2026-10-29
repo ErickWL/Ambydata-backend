@@ -1,36 +1,46 @@
 package com.ambydata.ambydata_backend.service;
 
-// Importa o modelo e o repositório que este serviço vai utilizar
 import com.ambydata.ambydata_backend.model.Usuario;
 import com.ambydata.ambydata_backend.repository.UsuarioRepository;
-
-// Injeção de dependência automática do Spring
-import org.springframework.beans.factory.annotation.Autowired;
-
-// Marca essa classe como um componente de serviço do Spring
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
-// Indica ao Spring que essa classe contém a lógica de negócio da aplicação
-// Fica entre o Controller (recebe requisições) e o Repository (acessa o banco)
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
+
 @Service
 public class UsuarioService {
 
-    // O Spring injeta automaticamente uma instância do repositório aqui
-    // O Service nunca acessa o banco diretamente — sempre via Repository
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    // Retorna a lista completa de usuários cadastrados no banco
-    // Chamado pelo UsuarioController quando chega um GET em /api/usuarios
-    public List<Usuario> listarTodos() {
-        return usuarioRepository.findAll(); // SELECT * FROM usuarios
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+        this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    // Salva um novo usuário ou atualiza um existente
-    // Retorna o usuário salvo já com o ID gerado pelo banco
-    // Chamado pelo UsuarioController quando chega um POST em /api/usuarios
+    public List<Usuario> listarTodos() {
+        return usuarioRepository.findAll();
+    }
+
+    public Optional<Usuario> autenticar(String email, String senha) {
+        if (email == null || email.isBlank() || senha == null || senha.isBlank()) {
+            return Optional.empty();
+        }
+
+        return usuarioRepository.findByEmail(email.trim().toLowerCase(Locale.ROOT))
+                .filter(usuario -> Boolean.TRUE.equals(usuario.getAtivo())
+                        && usuario.getSenhaHash() != null
+                        && passwordEncoder.matches(senha, usuario.getSenhaHash()));
+    }
     public Usuario salvar(Usuario usuario) {
+        if (usuario.getEmail() != null) {
+            usuario.setEmail(usuario.getEmail().trim().toLowerCase(Locale.ROOT));
+        }
+        if (usuario.getSenhaHash() != null) {
+            usuario.setSenhaHash(passwordEncoder.encode(usuario.getSenhaHash()));
+        }
         return usuarioRepository.save(usuario);
     }
 }
