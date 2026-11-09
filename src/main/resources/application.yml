@@ -5,6 +5,10 @@ server:
   port: 8080
 
 spring:
+  # [Guigo710] Ponto 1: cria automaticamente os índices declarados com @Indexed
+  data:
+    mongodb:
+      auto-index-creation: true
   mongodb:
     uri: ${MONGODB_URI}
     database: pi

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -34,8 +35,13 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public UsuarioResponse criar(@RequestBody Usuario usuario) {
-        return UsuarioResponse.de(usuarioService.salvar(usuario));
+    public ResponseEntity<?> criar(@RequestBody Usuario usuario) {
+        // [Guigo710] Pontos 1/3: devolve 400 com mensagem para e-mail duplicado, cargo inválido ou senha ausente
+        try {
+            return ResponseEntity.ok(UsuarioResponse.de(usuarioService.salvar(usuario)));
+        } catch (IllegalArgumentException | org.springframework.dao.DuplicateKeyException e) {
+            return ResponseEntity.badRequest().body(Map.of("erro", e.getMessage()));
+        }
     }
 
     @PostMapping("/login")
