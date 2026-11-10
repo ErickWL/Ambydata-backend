@@ -41,7 +41,7 @@ public class UsuarioService {
             usuario.setEmail(usuario.getEmail().trim().toLowerCase(Locale.ROOT));
         }
 
-        // [Guigo710] Ponto 1: checagem explícita de e-mail duplicado (além do índice único no banco)
+        // [Guigo710] Ponto 1: checagem de e-mail duplicado (além do índice único no banco)
         if (usuario.getEmail() != null) {
             usuarioRepository.findByEmail(usuario.getEmail())
                     .filter(existente -> !existente.getId().equals(usuario.getId()))
